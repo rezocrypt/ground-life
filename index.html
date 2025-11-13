@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Importing styles -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content2="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="files/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- Defining title -->
+    <title>Reso Ground Life-by Resonance</title>
+</head>
+
+<body>
+
+    <!-- Importing scripts for all objects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script src="scripts/grass.js"></script>
+    <script src="scripts/grass_eater.js"></script>
+    <script src="scripts/predator.js"></script>
+    <script src="scripts/wall.js"></script>
+    <script src="scripts/dog.js"></script>
+    <script src="scripts/god.js"></script>
+    <script src="scripts/script.js"></script>
+
+    <!-- Image for background -->
+    <img src="files/bg.png" alt="" id="bgimage">
+
+    <!-- Reso Ground life text -->
+    <a href="index.html" style="text-decoration: none;">
+        <h2 id="main-text">Reso Ground Life</h2>
+    </a>
+
+    <!-- Main canvas -->
+    <div id="cnv"></div>
+
+    <!-- Displaying settings here -->
+    <div id="settings">
+        <p id="settings-text" class="text-center h2 font-weight-bold">Settings</p>
+        <!-- Select tag for selecting mode -->
+        <select id="mode" class="form-select" aria-label="Default select example">
+            <option value="shape">Squares</option>
+            <option value="emoji">Emojies</option>
+            <option value="smile" enabled selected>Smiles</option>
+            <option value="letter">Letters</option>
+        </select>
+
+        <!-- Input and label for soil density -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Soil</span>
+            </div>
+            <input type="number" class="form-control" value=1000 id="ground" placeholder="Soil density"
+                aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <!-- Input and label for grass density -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Grass</span>
+            </div>
+            <input type="number" class="form-control" value=100 id="grass" placeholder="Grass density"
+                aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <!-- Input and label for grasseater density -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Grass eater</span>
+            </div>
+            <input type="number" class="form-control" value=100 id="grasseater" placeholder="Grass eater density"
+                aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <!-- Input and label for predator density -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Predator</span>
+            </div>
+            <input type="number" class="form-control" value=10 id="predator" placeholder="Predator density"
+                aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <!-- Input and label for dog density -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Dog</span>
+            </div>
+            <input type="number" class="form-control" value=10 id="dog" placeholder="Dog density" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <!-- Input and label for rows count -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Rows</span>
+            </div>
+            <input type="number" class="form-control" value=30 id="rows" placeholder="Rows count" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <!-- Input and label for columns count -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Columns</span>
+            </div>
+            <input type="number" class="form-control" value=200 id="columns" placeholder="Columns count"
+                aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+
+        <!-- Button for updating settings -->
+        <button type="button" class="btn btn-primary" id="choosesettings" onclick="updateSettings()"" >Update</button>
+        <div id=" error">
+            <h1></h1>
+    </div>
+    </div>
+    <div id="heroes">
+        <p id="about-text" class="text-center h2 font-weight-bold">Heroes and Rules</p>
+        <div id="about1">
+            <ul class="list-group">
+                <li class="list-group-item">֊ 🥦 🤢 - Grass, multiplies randomly on it's 8 neighbours if there is soil.
+                </li>
+                <li class="list-group-item">o 🐰 😈 ֊ Grass eater, multiplies after eating grass 5 times and dies after
+                    five times moving without eating.</li>
+                <li class="list-group-item">M 🐯 😡 - Predator, does not multiplie or die, eats grass or grass eaters.
+                </li>
+                <li class="list-group-item"># 🧱 🥶 - Wall, you can click with mouse wherever you want and put wall</li>
+                <li class="list-group-item">& 🐶 😱 ֊ Dog, just moves closer to the god.</li>
+                <li class="list-group-item">% 😃 😇 - God, you can control it with keys W(up), S(down), A(left) and
+                    D(right) and dogs will try to go as near as possible.</li>
+            </ul>
+        </div>
+    </div>
+
+    <style>#powered-by-resonance-p{font-size:30px;font-family:Arial,Helvetica,sans-serif!important;display:block;margin-top:10%!important;text-align:center;line-height:100px;height:100px;text-transform:uppercase;letter-spacing:10px-webkit-transition:font-size .5s ease;-moz-transition:font-size .5s ease;-o-transition:font-size .5s ease;transition:font-size .5s ease}#powered-by-resonance-p:hover{font-size:40px}#powered-by-resonance-a{text-decoration:none!important;color:#ffffff}#powered-by-resonance-a:hover{-webkit-transform:scale(1.9)}#powered-by-resonance-div{bottom:0;left:0;right:0;margin:auto}</style><div id="powered-by-resonance-div"><a target="blank" id="powered-by-resonance-a" href="https://github.com/ResonanceIPC"><p id="powered-by-resonance-p">POWERED BY RESONANCE</p></a></div><script>function rand(min,max){return Math.floor(Math.random()*(max-min+1))+min}function getRandomLetter(){var alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];return alphabet[rand(0,alphabet.length-1)]}function getRandomWord(word){var text=word.innerHTML;var finalWord='';for(var i=0;i<text.length;i++){finalWord+=text[i]==' '?' ':getRandomLetter()}return finalWord}var word=document.getElementById('powered-by-resonance-p');var interv='undefined';var canChange=false;var globalCount=0;var count=0;var INITIAL_WORD=word.innerHTML;var isGoing=false;function init(){if(isGoing)return;isGoing=true;var randomWord=getRandomWord(word);word.innerHTML=randomWord;interv=setInterval(function(){var finalWord='';for(var x=0;x<INITIAL_WORD.length;x++){if(x<=count&&canChange){finalWord+=INITIAL_WORD[x]}else{finalWord+=getRandomLetter()}}word.innerHTML=finalWord;if(canChange){count++}if(globalCount>=20){canChange=true}if(count>=INITIAL_WORD.length){clearInterval(interv);count=0;canChange=false;globalCount=0;isGoing=false}globalCount++},50)}word.addEventListener('mouseenter',init);</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

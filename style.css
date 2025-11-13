@@ -1,0 +1,133 @@
+body {
+    background: #011322 !important;
+    
+}
+
+#heroes {
+    width: 200px;
+    background-color: white;
+}
+
+#bgimage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1 !important;
+    background-repeat: repeat-y;
+    z-index: -1 !important;
+}
+
+#defaultCanvas0 {
+    display: inline;
+    margin-top: 1%;
+    width: 90% !important;
+}
+
+#main-text {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-size: 2.5em;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    transition: 0.3s;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+#main-text:hover {
+    font-size: 2.7em;
+    cursor: pointer;
+}
+
+.label-input {
+    width: 20%;
+}
+
+#settings {
+    float: inline-start;
+    width: 42.5%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#heroes {
+    float: inline-end;
+    width: 42.5%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-right: 5% !important;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.list-group-item{
+    font-size: larger;
+}
+
+/* Style for banner images */
+.banner-image-1 {
+    background-image: url('/images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+    justify-content: center;
+    height: 100vw;
+}
+
+
+#choosesettings {
+    width: 100%;
+}
+
+select {
+    margin-bottom: 3% !important;
+}
+
+#lbin {
+    display: flex;
+
+}
+
+#rules {
+    width: 40px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#cnv {
+    width: 100%;
+    margin-bottom: 1%;
+    color: black;
+    text-align: center;
+}
+#about-text{
+    color: white;
+    text-align: center;
+    margin-bottom: 3%;
+    font-weight: bold;
+}
+
+#settings-text{
+    color: white;
+    text-align: center;
+    margin-bottom: 4% !important;
+    font-weight: bold;
+}
