@@ -3,14 +3,18 @@
 Ground life is game where animals and grasses try to survive on soil. 
 
 
+<img width="1916" height="911" alt="image" src="https://github.com/user-attachments/assets/94571f5d-b81c-4fe1-8557-a1761eaa8604" />
+
+
 **Created:** 2019
-**Test:** GithubPagesUrl
+
+**Test:** https://rezocrypt.github.io/ground-life/
 
 
 ## Project Resources
 
 - [Github Repo](https://github.com/rezocrypt/)
-- [Website]()
+- [Website](https://rezocrypt.github.io/ground-life/)
 
 
 # Getting Started
